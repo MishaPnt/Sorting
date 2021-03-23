@@ -16,17 +16,24 @@ namespace Sorting
             }
             TSorting tBubble = new TBubble(myArray);
             Console.WriteLine("Вивiд вiдсортованого масиву методом бульбашки: ");
-            for (int i = 0; i < myArray[i]; i++)
+            int[] bubbleArray = tBubble.Sort();
+            for (int i = 0; i < bubbleArray.Length; i++)
             {
-                tBubble.Sort()[i] = myArray[i];
-                Console.WriteLine(tBubble.Sort()[i]);
+                Console.WriteLine(bubbleArray[i]);
             }
             TSorting tChoice = new TChoice(myArray);
             Console.WriteLine("Вивiд вiдсортованого масиву методом вибору: ");
-            for (int i = 0; i < myArray[i]; i++)
+            int[] choiceArray = tChoice.Sort();
+            for (int i = 0; i < choiceArray.Length; i++)
             {
-                tChoice.Sort()[i] = myArray[i];
-                Console.WriteLine(tChoice.Sort()[i]);
+                Console.WriteLine(choiceArray[i]);
+            }
+            TSorting tQuick = new TQuick(myArray);
+            Console.WriteLine("Вивiд вiдсортованого масиву швидкою сортировкою: ");
+            int[] quickArray = tQuick.Sort();
+            for (int i = 0; i < quickArray.Length; i++)
+            {
+                Console.WriteLine(quickArray[i]);
             }
         }
     }
