@@ -7,42 +7,46 @@ namespace Sorting
         public TQuick(int[] myArray) : base(myArray)
         {
         }
-        public override int[] Sort()
+        public void Swap(ref int x, ref int y)
         {
-            int i, j, pivot, counter, temp;
+            var t = x;
+            x = y;
+            y = t;
+        }
 
-            counter = 1;         
-            while (counter != 0)
+        public int Partition(int[] myArray, int minIndex, int maxIndex)
+        {
+            var pivot = minIndex - 1;
+            for (var i = minIndex; i < maxIndex; i++)
             {
-                i = -1;                                    
-                j = 0;                            
-                counter = 0;                             
-                Random rand = new Random();
-                pivot = rand.Next(0, myArray.Length - 1);        
-
-                for (int x = 0; x < myArray.Length; x++)          
+                if (myArray[i] < myArray[maxIndex])
                 {
-                    if (myArray[pivot] > myArray[j])                    
-                    {
-                        i++;                               
-                        temp = myArray[j];
-                        myArray[j] = myArray[i];
-                        myArray[i] = temp;                       
-                        j++;                                
-                        counter++;                          
-                    }
-                    else j++;                         
-                }
-                temp = myArray[i + 1];
-                myArray[i + 1] = myArray[pivot];                        
-
-                for (int x = (i + 2); x < myArray.Length; x++)        
-                {
-                    temp = myArray[x];
-                    myArray[x + 1] = temp;
+                    pivot++;
+                    Swap(ref myArray[pivot], ref myArray[i]);
                 }
             }
+            pivot++;
+            Swap(ref myArray[pivot], ref myArray[maxIndex]);
+            return pivot;
+        }
+
+        public int[] QuickSort(int[] myArray, int minIndex, int maxIndex)
+        {
+            if (minIndex >= maxIndex)
+            {
+                return myArray;
+            }
+
+            var pivotIndex = Partition(myArray, minIndex, maxIndex);
+            QuickSort(myArray, minIndex, pivotIndex - 1);
+            QuickSort(myArray, pivotIndex + 1, maxIndex);
+
             return myArray;
+        }
+
+        public override int[] Sort()
+        {
+            return QuickSort(myArray, 0, myArray.Length - 1);
         }
     }
 }
