@@ -4,7 +4,7 @@ namespace Sorting
 {
     class TQuick : TSorting
     {
-        public TQuick(int[] myArray) : base(myArray)
+        public TQuick(int[] myArray,bool sortByAsc) : base(myArray, sortByAsc)
         {
         }
         private void Swap(ref int x, ref int y)
@@ -19,10 +19,21 @@ namespace Sorting
             var pivot = minIndex - 1;
             for (var i = minIndex; i < maxIndex; i++)
             {
-                if (myArray[i] < myArray[maxIndex])
+                if (sortByAsc==true)
                 {
-                    pivot++;
-                    Swap(ref myArray[pivot], ref myArray[i]);
+                    if (myArray[i] < myArray[maxIndex])
+                    {
+                        pivot++;
+                        Swap(ref myArray[pivot], ref myArray[i]);
+                    }
+                }
+                else
+                {
+                    if (myArray[i] > myArray[maxIndex])
+                    {
+                        pivot++;
+                        Swap(ref myArray[pivot], ref myArray[i]);
+                    }
                 }
             }
             pivot++;

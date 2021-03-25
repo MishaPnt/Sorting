@@ -2,7 +2,7 @@
 {
     class TChoice : TSorting
     {
-        public TChoice(int[]myArray):base(myArray)
+        public TChoice(int[]myArray,bool sortByAsc) :base(myArray, sortByAsc)
         {
         }
         public override int[] Sort()
@@ -12,10 +12,21 @@
                 int min = i;
                 for (int j = i + 1; j < myArray.Length; j++)
                 {
-                    if (myArray[j] < myArray[min])
+                    if (sortByAsc == true)
                     {
-                        min = j;
+                        if (myArray[j] < myArray[min])
+                        {
+                            min = j;
+                        }
                     }
+                    else
+                    {
+                        if (myArray[j] > myArray[min])
+                        {
+                            min = j;
+                        }
+                    }
+
                 }
                 int temp = myArray[min];
                 myArray[min] = myArray[i];
