@@ -14,7 +14,7 @@ namespace Sorting
             {
                 for (int j = i + 1; j < myArray.Length; j++)
                 {
-                    if (sortByAsc ==true)
+                    if (sortByAsc)
                     {
                         if (myArray[i] > myArray[j])
                         {

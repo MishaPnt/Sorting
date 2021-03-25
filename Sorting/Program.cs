@@ -11,7 +11,7 @@ namespace Sorting
             int countOfNumbs = int.Parse(Console.ReadLine());
             int[] myArray = new int[countOfNumbs];
             bool sortByAsc = false;
-            Console.WriteLine("Якщо бажаєте масив по спаданню напишіть 'yes'якщо нi то 'no'");
+            Console.WriteLine("Якщо бажаєте масив по зростанню напишіть 'yes'якщо нi то 'no'");
             string choice = Console.ReadLine();
             if (choice == "yes")
             {

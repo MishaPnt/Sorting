@@ -19,7 +19,7 @@ namespace Sorting
             var pivot = minIndex - 1;
             for (var i = minIndex; i < maxIndex; i++)
             {
-                if (sortByAsc==true)
+                if (sortByAsc)
                 {
                     if (myArray[i] < myArray[maxIndex])
                     {
