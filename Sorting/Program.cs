@@ -10,12 +10,12 @@ namespace Sorting
             Console.WriteLine("Введiть кiлькiсть чисел: ");
             int countOfNumbs = int.Parse(Console.ReadLine());
             int[] myArray = new int[countOfNumbs];
-            bool sortByAsc = true;
+            bool sortByAsc = false;
             Console.WriteLine("Якщо бажаєте масив по спаданню напишіть 'yes'якщо нi то 'no'");
             string choice = Console.ReadLine();
             if (choice == "yes")
             {
-                sortByAsc = false;
+                sortByAsc = true;
             }
             for (int i = 0; i < myArray.Length; i++)
             {
