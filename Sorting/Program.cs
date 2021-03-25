@@ -6,6 +6,7 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
+            int sum= 0;
             Console.WriteLine("Введiть кiлькiсть чисел: ");
             int countOfNumbs = int.Parse(Console.ReadLine());
             int[] myArray = new int[countOfNumbs];
@@ -34,7 +35,10 @@ namespace Sorting
             for (int i = 0; i < quickArray.Length; i++)
             {
                 Console.WriteLine(quickArray[i]);
+                sum += quickArray[i];
             }
+            Console.WriteLine("Вивiд суми елементiв масива");
+            Console.WriteLine(sum);
         }
     }
 }
