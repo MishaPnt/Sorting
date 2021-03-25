@@ -7,14 +7,14 @@ namespace Sorting
         public TQuick(int[] myArray) : base(myArray)
         {
         }
-        public void Swap(ref int x, ref int y)
+        private void Swap(ref int x, ref int y)
         {
             var t = x;
             x = y;
             y = t;
         }
 
-        public int Partition(int[] myArray, int minIndex, int maxIndex)
+        private int Partition(int[] myArray, int minIndex, int maxIndex)
         {
             var pivot = minIndex - 1;
             for (var i = minIndex; i < maxIndex; i++)
@@ -30,7 +30,7 @@ namespace Sorting
             return pivot;
         }
 
-        public int[] QuickSort(int[] myArray, int minIndex, int maxIndex)
+        private int[] QuickSort(int[] myArray, int minIndex, int maxIndex)
         {
             if (minIndex >= maxIndex)
             {
