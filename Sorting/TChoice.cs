@@ -2,35 +2,39 @@
 {
     class TChoice : TSorting
     {
-        public TChoice(int[]myArray,bool sortByAsc) :base(myArray, sortByAsc)
+        public TChoice(int[] myArray, bool sortByAsc, int x, int y) : base(myArray, sortByAsc, x, y)
         {
+        }
+        public override void Swap()
+        {
+            var t = myArray[x];
+            myArray[x] = myArray[y];
+            myArray[y] = t;
         }
         public override int[] Sort()
         {
-            for (int i = 0; i < myArray.Length - 1; i++)
+            for (y = 0; y < myArray.Length - 1; y++)
             {
-                int min = i;
-                for (int j = i + 1; j < myArray.Length; j++)
+                x = y;
+                for (int j = y + 1; j < myArray.Length; j++)
                 {
                     if (sortByAsc)
                     {
-                        if (myArray[j] < myArray[min])
+                        if (myArray[j] < myArray[x])
                         {
-                            min = j;
+                            x = j;
                         }
                     }
                     else
                     {
-                        if (myArray[j] > myArray[min])
+                        if (myArray[j] > myArray[x])
                         {
-                            min = j;
+                            x = j;
                         }
                     }
 
                 }
-                int temp = myArray[min];
-                myArray[min] = myArray[i];
-                myArray[i] = temp;
+                Swap();
             }
             return myArray;
         }

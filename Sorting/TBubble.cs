@@ -4,32 +4,33 @@ namespace Sorting
 {
     class TBubble : TSorting
     {
-        public TBubble(int[] myArray, bool sortByAsc) : base(myArray, sortByAsc)
+        public TBubble(int[] myArray, bool sortByAsc, int x, int y) : base(myArray, sortByAsc, x, y)
         {
+        }
+        public override void Swap()
+        {
+            var t = myArray[x];
+            myArray[x] = myArray[y];
+            myArray[y] = t;
         }
         public override int[] Sort()
         {
-            int temp;
-            for (int i = 0; i < myArray.Length - 1; i++)
+            for ( x = 0; x < myArray.Length - 1; x++)
             {
-                for (int j = i + 1; j < myArray.Length; j++)
+                for ( y = x + 1; y < myArray.Length; y++)
                 {
                     if (sortByAsc)
                     {
-                        if (myArray[i] > myArray[j])
+                        if (myArray[x] > myArray[y])
                         {
-                            temp = myArray[i];
-                            myArray[i] = myArray[j];
-                            myArray[j] = temp;
+                            Swap();
                         }
                     }
                     else
                     {
-                        if (myArray[i] < myArray[j])
+                        if (myArray[x] < myArray[y])
                         {
-                            temp = myArray[i];
-                            myArray[i] = myArray[j];
-                            myArray[j] = temp;
+                            Swap();
                         }
                     }
 

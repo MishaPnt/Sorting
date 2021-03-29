@@ -4,14 +4,14 @@ namespace Sorting
 {
     class TQuick : TSorting
     {
-        public TQuick(int[] myArray,bool sortByAsc) : base(myArray, sortByAsc)
+        public TQuick(int[] myArray,bool sortByAsc,int x,int y) : base(myArray, sortByAsc,x,y)
         {
         }
-        private void Swap(ref int x, ref int y)
+        public override void Swap()
         {
-            var t = x;
-            x = y;
-            y = t;
+            var t = myArray[x];
+            myArray[x] = myArray[y];
+            myArray[y] = t;
         }
 
         private int Partition(int[] myArray, int minIndex, int maxIndex)
@@ -24,7 +24,7 @@ namespace Sorting
                     if (myArray[i] < myArray[maxIndex])
                     {
                         pivot++;
-                        Swap(ref myArray[pivot], ref myArray[i]);
+                        Swap(myArray[pivot],myArray[i]);
                     }
                 }
                 else
@@ -32,12 +32,12 @@ namespace Sorting
                     if (myArray[i] > myArray[maxIndex])
                     {
                         pivot++;
-                        Swap(ref myArray[pivot], ref myArray[i]);
+                        Swap(myArray[pivot],myArray[i]);
                     }
                 }
             }
             pivot++;
-            Swap(ref myArray[pivot], ref myArray[maxIndex]);
+            Swap(myArray[pivot],myArray[maxIndex]);
             return pivot;
         }
 
