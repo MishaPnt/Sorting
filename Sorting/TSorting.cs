@@ -6,20 +6,16 @@
 
         protected int[] myArray;
         protected bool sortByAsc;
-        protected  int x;
-        protected  int y;
-        public TSorting(int[] myArray,bool sortByAsc,int x,int y)
+        public TSorting(int[] myArray,bool sortByAsc)
         {
             this.myArray = myArray;
             this.sortByAsc = sortByAsc;
-            this.x = x;
-            this.y = y;
         }
-        protected void Swap()
+        protected void Swap(ref int x,ref int y)
         {
-            var t = myArray[x];
-            myArray[x] = myArray[y];
-            myArray[y] = t;
+            var t = x;
+            x = y;
+            y = t;
         }
     }
 }

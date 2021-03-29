@@ -4,35 +4,35 @@ namespace Sorting
 {
     class TQuick : TSorting
     {
-        public TQuick(int[] myArray,bool sortByAsc,int x,int y) : base(myArray, sortByAsc,x,y)
+        public TQuick(int[] myArray,bool sortByAsc) : base(myArray, sortByAsc)
         {
         }
-
+         
         private int Partition(int[] myArray, int minIndex, int maxIndex)
         {
-            var x = minIndex - 1;
-            for (var y = minIndex; y < maxIndex; y++)
+            var pivot = minIndex - 1;
+            for (var i = minIndex; i < maxIndex; i++)
             {
                 if (sortByAsc)
                 {
-                    if (myArray[y] < myArray[maxIndex])
+                    if (myArray[i] < myArray[maxIndex])
                     {
-                        x++;
-                        Swap();
+                        pivot++;
+                        Swap(ref myArray[pivot],ref myArray[i]);
                     }
                 }
                 else
                 {
-                    if (myArray[y] > myArray[maxIndex])
+                    if (myArray[i] > myArray[maxIndex])
                     {
-                        x++;
-                        Swap();
+                        pivot++;
+                        Swap( ref myArray[pivot],ref myArray[i]);
                     }
                 }
             }
-            x++;
-            Swap();
-            return x;
+            pivot++;
+            Swap(ref myArray[pivot],ref myArray[maxIndex]);
+            return pivot;
         }
 
         private int[] QuickSort(int[] myArray, int minIndex, int maxIndex)

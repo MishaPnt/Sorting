@@ -2,33 +2,33 @@
 {
     class TChoice : TSorting
     {
-        public TChoice(int[] myArray, bool sortByAsc, int x, int y) : base(myArray, sortByAsc, x, y)
+        public TChoice(int[] myArray, bool sortByAsc) : base(myArray, sortByAsc)
         {
         }
         public override int[] Sort()
         {
-            for (y = 0; y < myArray.Length - 1; y++)
+            for (int i = 0; i < myArray.Length - 1; i++)
             {
-                x = y;
-                for (int j = y + 1; j < myArray.Length; j++)
+                int min = i;
+                for (int j = i + 1; j < myArray.Length; j++)
                 {
                     if (sortByAsc)
                     {
-                        if (myArray[j] < myArray[x])
+                        if (myArray[j] < myArray[min])
                         {
-                            x = j;
+                            min = j;
                         }
                     }
                     else
                     {
-                        if (myArray[j] > myArray[x])
+                        if (myArray[j] > myArray[min])
                         {
-                            x = j;
+                            min = j;
                         }
                     }
 
                 }
-                Swap();
+                Swap(ref myArray[i], ref myArray[min]);
             }
             return myArray;
         }
