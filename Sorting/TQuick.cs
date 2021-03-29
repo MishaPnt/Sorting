@@ -7,38 +7,32 @@ namespace Sorting
         public TQuick(int[] myArray,bool sortByAsc,int x,int y) : base(myArray, sortByAsc,x,y)
         {
         }
-        public override void Swap()
-        {
-            var t = myArray[x];
-            myArray[x] = myArray[y];
-            myArray[y] = t;
-        }
 
         private int Partition(int[] myArray, int minIndex, int maxIndex)
         {
-            var pivot = minIndex - 1;
-            for (var i = minIndex; i < maxIndex; i++)
+            var x = minIndex - 1;
+            for (var y = minIndex; y < maxIndex; y++)
             {
                 if (sortByAsc)
                 {
-                    if (myArray[i] < myArray[maxIndex])
+                    if (myArray[y] < myArray[maxIndex])
                     {
-                        pivot++;
-                        Swap(myArray[pivot],myArray[i]);
+                        x++;
+                        Swap();
                     }
                 }
                 else
                 {
-                    if (myArray[i] > myArray[maxIndex])
+                    if (myArray[y] > myArray[maxIndex])
                     {
-                        pivot++;
-                        Swap(myArray[pivot],myArray[i]);
+                        x++;
+                        Swap();
                     }
                 }
             }
-            pivot++;
-            Swap(myArray[pivot],myArray[maxIndex]);
-            return pivot;
+            x++;
+            Swap();
+            return x;
         }
 
         private int[] QuickSort(int[] myArray, int minIndex, int maxIndex)
