@@ -52,50 +52,49 @@ namespace Sorting
             Console.WriteLine(sum);
 
             // Second Part
-
             Stopwatch sw = new Stopwatch();
             Console.WriteLine("Введiть кiлькiсть чисел: ");
             int countOfNumbs1 = int.Parse(Console.ReadLine());
+            // First Method
             int[] myArray1 = new int[countOfNumbs1];
+            TSorting tBubble1 = new TBubble(myArray1, sortByAsc);
             Random random = new Random();
             for (int i = 0; i < myArray1.Length; i++)
             {
-                myArray1[i] = random.Next(0,50000);
+                myArray1[i] = random.Next(0, 50000);
             }
             sw.Start();
-            // First Method
-            TSorting tBubble1 = new TBubble(myArray1, sortByAsc);
-            Console.WriteLine("Вивiд вiдсортованого масиву методом бульбашки: ");
-            int[] bubbleArray1 = tBubble1.Sort();
-            for (int i = 0; i < bubbleArray1.Length; i++)
-            { 
-                Console.WriteLine(bubbleArray1[i]);
-            }
+            myArray1 = tBubble1.Sort();
             sw.Stop();
+            Console.WriteLine("Вивiд вiдсортованого масиву методом бульбашки: ");
             Console.WriteLine("Таймер");
             Console.WriteLine("Мiлiсекунд: " + sw.ElapsedMilliseconds);
             // Second Method
-            sw.Start();
-            TSorting tChoice1 = new TChoice(myArray1, sortByAsc);
-            Console.WriteLine("Вивiд вiдсортованого масиву методом вибору: ");
-            int[] choiceArray1 = tChoice1.Sort();
-            for (int i = 0; i < choiceArray1.Length; i++)
+            int[] myArray2 = new int[countOfNumbs1];
+            TSorting tChoice1 = new TChoice(myArray2, sortByAsc);
+            Random random2 = new Random();
+            for (int i = 0; i < myArray2.Length; i++)
             {
-                Console.WriteLine(choiceArray1[i]);
+                myArray2[i] = random2.Next(0, 50000);
             }
+            sw.Start();
+            myArray2 = tChoice1.Sort();
             sw.Stop();
+            Console.WriteLine("Вивiд вiдсортованого масиву методом вибору: ");
             Console.WriteLine("Таймер");
             Console.WriteLine("Мiлiсекунд: " + sw.ElapsedMilliseconds);
             //Third Method
-            sw.Start();
-            TSorting tQuick1 = new TQuick(myArray1, sortByAsc);
-            Console.WriteLine("Вивiд вiдсортованого масиву швидкою сортировкою: ");
-            int[] quickArray1 = tQuick1.Sort();
-            for (int i = 0; i < quickArray1.Length; i++)
+            int[] myArray3 = new int[countOfNumbs1];
+            TSorting tQuick1 = new TQuick(myArray3, sortByAsc);
+            Random random3 = new Random();
+            for (int i = 0; i < myArray3.Length; i++)
             {
-                Console.WriteLine(quickArray1[i]);
+                myArray3[i] = random3.Next(0, 50000);
             }
+            sw.Start();
+            myArray3 = tQuick1.Sort();
             sw.Stop();
+            Console.WriteLine("Вивiд вiдсортованого масиву швидкою сортировкою: ");
             Console.WriteLine("Таймер");
             Console.WriteLine("Мiлiсекунд: " + sw.ElapsedMilliseconds);
         }
