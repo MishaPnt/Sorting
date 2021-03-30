@@ -1,13 +1,10 @@
-﻿using System;
-
-namespace Sorting
+﻿namespace Sorting
 {
     class TQuick : TSorting
     {
         public TQuick(int[] myArray,bool sortByAsc) : base(myArray, sortByAsc)
         {
         }
-         
         private int Partition(int[] myArray, int minIndex, int maxIndex)
         {
             var pivot = minIndex - 1;
@@ -34,7 +31,6 @@ namespace Sorting
             Swap(ref myArray[pivot],ref myArray[maxIndex]);
             return pivot;
         }
-
         private int[] QuickSort(int[] myArray, int minIndex, int maxIndex)
         {
             if (minIndex >= maxIndex)
@@ -48,7 +44,6 @@ namespace Sorting
 
             return myArray;
         }
-
         public override int[] Sort()
         {
             return QuickSort(myArray, 0, myArray.Length - 1);

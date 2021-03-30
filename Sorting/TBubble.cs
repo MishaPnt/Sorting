@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sorting
+﻿namespace Sorting
 {
     class TBubble : TSorting
     {

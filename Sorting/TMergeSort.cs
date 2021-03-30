@@ -68,7 +68,7 @@
                 var middleIndex = (lowIndex + highIndex) / 2;
                 Swap(ref myArray[lowIndex],ref myArray[middleIndex]);
                 Swap(ref myArray[middleIndex + 1],ref myArray[highIndex]);
-                Merge(myArray[lowIndex], myArray[middleIndex], myArray[highIndex]);
+                Merge(lowIndex,middleIndex,highIndex);
             }
             return myArray;
         }
@@ -77,6 +77,5 @@
         {
             return MergeSort(0, myArray.Length - 1);
         }
-
     }
 }
