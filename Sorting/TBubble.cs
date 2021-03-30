@@ -7,7 +7,6 @@ namespace Sorting
         public TBubble(int[] myArray, bool sortByAsc) : base(myArray, sortByAsc)
         {
         }
-
         public override int[] Sort()
         {
             for (int i = 0; i < myArray.Length - 1; i++)

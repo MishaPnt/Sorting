@@ -26,7 +26,6 @@
                             min = j;
                         }
                     }
-
                 }
                 Swap(ref myArray[i], ref myArray[min]);
             }
